@@ -26,14 +26,14 @@ function loadData() {
     $.getJSON(nytimesUrl, function (data) {
 
         $nytHeaderElem.text('New York Times Articles About ' + cityStr);
-        
+
 
 
 
         articles = data.response.docs;
         for ( var i = 0; i < articles.length; i++) {
             var article = articles[i];
-            $nytElem.append('<li class="article">'+ 
+            $nytElem.append('<li class="article">'+
                 '<a href="'+article.web_url+'">'+article.headline.main+
                     '</a>'+
                 '<p>' + article.snippet + '</p>'+
@@ -42,7 +42,7 @@ function loadData() {
     }).error(function(e) {
         $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
     });
- 
+
     var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + cityStr + '&format=json&callback=wikiCallback';
 
     var wikiRequestTimeout = setTimeout(function() {
@@ -69,3 +69,5 @@ function loadData() {
 };
 
 $('#form-container').submit(loadData);
+
+google.maps.event.addDomListener(window, 'load', initialize);
