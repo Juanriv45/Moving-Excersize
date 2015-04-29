@@ -7,10 +7,10 @@
 </head>
 <body>
 
-    <form id="form-container" class="form-container">
-        <label for="street">Street: </label><input type="text" id="street" value="">
-        <label for="city">City: </label><input type="text" id="city" value="">
-        <button id="submit-btn">Submit</button>
+    <form data-bind="submit:requestData">
+        <label for="street">Street: </label><input type="text" data-bind="value: streetStr">
+        <label for="city">City: </label><input type="text" data-bind="value: cityStr">
+        <button type="submit">Submit</button>
     </form>
 
     <hr>
